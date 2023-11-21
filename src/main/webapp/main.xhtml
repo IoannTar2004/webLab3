@@ -4,13 +4,88 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <h:body>
-      <f:view>
-         <h:form>
-            <h:commandButton value = "Click Me" onclick = "alert('Hello World');" />
-         </h:form>
-      </f:view>
-   </h:body>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+   <title>Lab 3</title>
+   <link rel="stylesheet" href="styles/mainStyles.css" />
+</head>
+<body>
+   <h:form>
+      <h:commandButton styleClass="back" value="Вернуться" action="welcome"/>
+   </h:form>
+   <div id="topbox">
+      <div class="topText">Тарасов Иван Сергеевич. Группа: P3230. Вариант: 521889</div>
+   </div>
 
+<div id="tablebox">
+   <div id="canvas">
+      <div id="dots"></div>
+
+      <div id="y" class="coordinate">y</div>
+      <div id="x" class="coordinate">x</div>
+      <div id="coorRd2_x" class="coordinate">1</div>
+      <div id="coorR_x" class="coordinate">2</div>
+      <div id="coorRd2_y" class="coordinate">1</div>
+      <div id="coorR_y" class="coordinate">2</div>
+      <div id="coor-Rd2_x" class="coordinate">-1</div>
+      <div id="coor-R_x" class="coordinate">-2</div>
+      <div id="coor-Rd2_y" class="coordinate">-1</div>
+      <div id="coor-R_y" class="coordinate">-2</div>
+      <h:graphicImage styleClass="graphics" value="img/canvas.png"/>
+   </div>
+
+
+   <div id="parametersbox">
+      <h:form id="form" style="text-align: center;">
+         <p class="coorhead">Изменение X</p>
+            <h:selectOneRadio styleClass="radio" required="true">
+               <f:selectItem itemValue="f" itemLabel="-4"/>
+               <f:selectItem itemValue="f" itemLabel="-1" />
+               <f:selectItem itemValue="f" itemLabel="2" />
+               <f:selectItem itemValue="f" itemLabel="-3" />
+               <f:selectItem itemValue="f" itemLabel="0" />
+               <f:selectItem itemValue="f" itemLabel="3" />
+               <f:selectItem itemValue="f" itemLabel="-2" />
+               <f:selectItem itemValue="f" itemLabel="1" />
+               <f:selectItem itemValue="f" itemLabel="4" />
+            </h:selectOneRadio>
+
+         <p class="coorhead">Изменение Y</p>
+         <h:inputText required="true" a:placeholder="Введите число от 5 до 3"/>
+
+         <p class="coorhead">Изменение R</p>
+         <h:commandButton type="button" id="r1" styleClass="r-button" value="1" />
+         <h:commandButton type="button" id="r2" styleClass="r-button" value="2"/>
+         <h:commandButton type="button" id="r3" styleClass="r-button" value="3"/>
+         <h:commandButton type="button" id="r4" styleClass="r-button" value="4"/>
+         <h:commandButton type="button" id="r5" styleClass="r-button" value="5"/>
+         <br />
+
+         <h:commandButton value="Отправить" styleClass="submit"/>
+         </h:form>
+      </div>
+</div>
+<table id="result-table">
+   <thead>
+   <tr>
+      <th>Параметры</th>
+      <th>Факт попадания</th>
+      <th>Время отправки</th>
+      <th style="width: 60px">Затраченное время</th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+   </tr>
+   </tbody>
+</table>
+<div id="fixed-dot"></div>
+<script type="text/javascript" src="js/validation.js"></script>
+
+</body>
 </html>

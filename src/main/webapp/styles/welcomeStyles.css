@@ -82,8 +82,14 @@ body {
     background-color: blue;
     color: white;
     font-weight: bold;
+
+    background-image: linear-gradient(#26a626, #26a626);
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size .5s, color .5s;
 }
 
 .next-page:hover {
-
+    background-size: 100% 100%;
 }

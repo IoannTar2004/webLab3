@@ -1,0 +1,234 @@
+body {
+    background-image: url("../img/cyber.jpg");
+    background-size: cover;
+    margin: 0;
+}
+
+#topbox {
+    width: 100%;
+    height: 8vh;
+    line-height: 50px;
+    background: rgba(7 7 131 / 46.3%);
+    text-align: center;
+    box-shadow:0 0 100px 30px white;
+}
+
+.back {
+    position: absolute;
+    border-radius: 20px;
+    background-color: white;
+    font-weight: bold;
+    top: 15px;
+    left: 5px;
+    background-image: linear-gradient(#ff0000, #a21c1c);
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size .5s, color .5s;
+}
+
+.back:hover {
+    background-size: 100% 100%;
+    color: white;
+}
+
+#arrow:hover {
+    height: 100px;
+    width: 132px;
+    top: -20px;
+}
+
+.topText {
+    padding-top: 5px;
+    font-size: 30px;
+    font-style: italic;
+    color: white;
+}
+
+#tablebox {
+    float: left;
+    height: 500px;
+    width: 850px;
+    background: rgba(0 128 0 / 50%);
+    border-radius: 20px;
+    border: 3px solid silver;
+    margin-top: 120px;
+    margin-left: 25px;
+    box-shadow:0 0 50px 5px silver;
+}
+
+.graphics {
+    height: 250px;
+    width: 250px;
+    pointer-events: none;
+}
+
+.coordinate {
+    font-size: 15px;
+    position: absolute;
+    text-align: center;
+    margin-left: 6px;
+}
+
+#y {
+    padding-left: 128px;
+    padding-top: 3px;
+}
+
+#x {
+    padding-left: 230px;
+    padding-top: 130px;
+}
+
+#coorRd2_x {
+    padding-left: 159px;
+    padding-top: 105px;
+}
+
+#coorR_x {
+    padding-left: 205px;
+    padding-top: 105px;
+}
+
+#coorRd2_y {
+    padding-left: 125px;
+    padding-top: 72px;
+}
+
+#coorR_y {
+    padding-left: 125px;
+    padding-top: 26px;
+}
+
+#coor-Rd2_x {
+    padding-left: 65px;
+    padding-top: 105px;
+}
+
+#coor-R_x {
+    padding-left: 23px;
+    padding-top: 105px;
+}
+
+#coor-Rd2_y {
+    padding-left: 125px;
+    padding-top: 160px;
+}
+
+#coor-R_y {
+    padding-left: 125px;
+    padding-top: 205px;
+}
+
+#canvas {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    left: 120px;
+    top: 320px;
+}
+
+#parametersbox {
+    position: absolute;
+    height: 440px;
+    width: 420px;
+    background: rgba(255 255 255 / 70%);
+    border-radius: 20px;
+    left: 430px;
+    bottom: 155px;
+}
+
+.radio {
+    font-size: 18px;
+    margin-left: 25px;
+}
+
+.coorhead {
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.r-button {
+    width: 30px;
+    font-size: 18px;
+    background-color: aqua;
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+.r-button:hover {
+    background-color: yellow;
+}
+
+.submit {
+    margin-top: 20px;
+    height: 32px;
+    border-radius: 20px;
+    background-color: blue;
+    font-weight: bold;
+    color: white;
+    border-width: 3px;
+}
+
+.submit:hover {
+    border-color: yellow;
+}
+
+
+#result-table {
+    float: right;
+    margin-right: 25px;
+    margin-top: 120px;
+    border-collapse: collapse;
+    overflow: auto;
+}
+
+#result-table th {
+    padding: 10px;
+    background-color: rgb(207 35 61);
+    color: white;
+}
+
+#result-table td {
+    text-align: center;
+    padding: 5px;
+}
+
+#result-table th:nth-child(odd) {
+    background-color: rgb(178 37 58);
+}
+
+#result-table tr:nth-child(even) {
+    background-color: rgb(255 255 255);
+}
+
+#result-table tr:nth-child(odd) {
+    background-color: rgb(234 226 226);
+}
+
+#result-table tr:hover {
+    background-color: rgb(202 200 200);
+}
+
+.dot {
+    margin-left: 125px;
+    margin-top: 125px;
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    align-content: center;
+    background-color: red;
+}
+
+#fixed-dot {
+    display: none;
+    width: 4px;
+    height: 4px;
+    background-color: orangered;
+    transform: translateY(-50%) translateX(-50%); /* центрируем кружок */
+    position: absolute; /* задаём абсолютное позиционирование, чтобы элемент не влиял на остальные элементы и его можно было бы позиционировать следом за курсором */
+    z-index: 999; /* чтобы элемент был над остальными элементами */
+    pointer-events: none; /* чтобы сквозь элемент можно было взаимодействовать с элементами, находящимися под ним */
+    transition: width 0.64s, height 0.64s, border-radius 0.64s, background 0.64s;
+}
