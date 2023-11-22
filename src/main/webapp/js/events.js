@@ -13,4 +13,11 @@ function buttonsInit() {
     }
 }
 
+function errorsClear() {
+    document.body.addEventListener("click", () => {
+        document.getElementById("form:errorY").innerHTML = ""
+    })
+}
+
 buttonsInit()
+errorsClear()
