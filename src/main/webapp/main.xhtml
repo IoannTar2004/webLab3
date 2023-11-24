@@ -8,9 +8,9 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
    <title>Lab 3</title>
-   <link rel="stylesheet" href="styles/mainStyles.css" />
+    <h:outputStylesheet library="css" name="mainStyles.css"/>
 </h:head>
-<h:body>
+<h:body styleClass="body">
    <h:form>
       <h:commandButton styleClass="back" value="Вернуться" action="welcome"/>
    </h:form>
@@ -25,17 +25,16 @@
 
       <div id="y" class="coordinate">y</div>
       <div id="x" class="coordinate">x</div>
-      <div id="coorRd2_x" class="coordinate">1</div>
-      <div id="coorR_x" class="coordinate">2</div>
-      <div id="coorRd2_y" class="coordinate">1</div>
-      <div id="coorR_y" class="coordinate">2</div>
-      <div id="coor-Rd2_x" class="coordinate">-1</div>
-      <div id="coor-R_x" class="coordinate">-2</div>
-      <div id="coor-Rd2_y" class="coordinate">-1</div>
-      <div id="coor-R_y" class="coordinate">-2</div>
+      <div id="coorRd2_x" class="coordinate">0.5</div>
+      <div id="coorR_x" class="coordinate">1</div>
+      <div id="coorRd2_y" class="coordinate">0.5</div>
+      <div id="coorR_y" class="coordinate">1</div>
+      <div id="coor-Rd2_x" class="coordinate">-0.5</div>
+      <div id="coor-R_x" class="coordinate">-0.5</div>
+      <div id="coor-Rd2_y" class="coordinate">-0.5</div>
+      <div id="coor-R_y" class="coordinate">-0.5</div>
       <h:graphicImage styleClass="graphics" value="img/canvas.png"/>
    </div>
-
    <div id="parametersbox">
          <p class="coorhead">Изменение X</p>
             <h:selectOneRadio styleClass="radio" required="true" value="#{beanPoint.x}">
@@ -55,19 +54,41 @@
          <h:outputText styleClass="errorY" id="errorY" value="#{pointChecker.messageError}"/>
 
          <p class="coorhead">Изменение R</p>
-         <h:commandButton type="button" id="r1" styleClass="r-button" value="1" />
-         <h:commandButton type="button" id="r2" styleClass="r-button" value="2"/>
-         <h:commandButton type="button" id="r3" styleClass="r-button" value="3"/>
-         <h:commandButton type="button" id="r4" styleClass="r-button" value="4"/>
-         <h:commandButton type="button" id="r5" styleClass="r-button" value="5"/>
+       <h:commandButton id="r1" styleClass="r-button" value="1">
+           <f:ajax execute="@form"/>
+           <f:setPropertyActionListener target="#{beanPoint.r}" value="1" />
+       </h:commandButton>
+
+       <h:commandButton id="r2" styleClass="r-button" value="2">
+           <f:ajax execute="@form"/>
+           <f:setPropertyActionListener target="#{beanPoint.r}" value="2" />
+       </h:commandButton>
+
+         <h:commandButton id="r3" styleClass="r-button" value="3">
+             <f:ajax execute="@form"/>
+             <f:setPropertyActionListener target="#{beanPoint.r}" value="3" />
+         </h:commandButton>
+
+         <h:commandButton id="r4" styleClass="r-button" value="4">
+             <f:ajax execute="@form"/>
+             <f:setPropertyActionListener target="#{beanPoint.r}" value="4" />
+         </h:commandButton>
+
+         <h:commandButton id="r5" styleClass="r-button" value="5">
+             <f:ajax execute="@form"/>
+             <f:setPropertyActionListener target="#{beanPoint.r}" value="5" />
+         </h:commandButton>
          <br />
 
          <h:commandButton value="Отправить" styleClass="submit" action="#{pointChecker.submit()}">
-            <f:ajax execute="@form" render="@form" />
+            <f:ajax execute="@form" render="form:results" />
          </h:commandButton>
    </div>
 </div>
-<h:dataTable value="#{results.points}" var="p" border="1">
+<h:dataTable id="results" value="#{results.points}" var="p" border="1"
+             styleClass="result-table"
+             headerClass="result-table-header"
+             rowClasses="result-table-row">
    <h:column>
       <f:facet name="header">Параметры</f:facet>
       #{p.x} #{p.y} #{p.r}
@@ -85,9 +106,11 @@
       #{p.scriptTime}
    </h:column>
 </h:dataTable>
+
 </h:form>
+
 <div id="fixed-dot"></div>
-<script type="text/javascript" src="js/events.js"></script>
+<script type="text/javascript" src="resources/js/events.js"></script>
 
 </h:body>
 </html>

@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Lab 3</title>
-    <link rel="stylesheet" href="styles/welcomeStyles.css" />
+    <h:outputStylesheet library="css" name="welcomeStyles.css"/>
 </h:head>
 <h:body>
     <div id="topbox">
@@ -18,20 +18,20 @@
         <div id="table"></div>
     </div>
     <div id="clock">
-        <img src="img/indicator/1.png" class="indicator left" alt=""/>
-        <img src="img/indicator/1.png" class="indicator" alt=""/>
-        <img src="img/indicator/dots.png" class="dots" alt=""/>
+        <img src="resources/img/indicator/1.png" class="indicator left" alt=""/>
+        <img src="resources/img/indicator/1.png" class="indicator" alt=""/>
+        <img src="resources/img/indicator/dots.png" class="dots" alt=""/>
 
-        <img src="img/indicator/1.png" class="indicator" alt=""/>
-        <img src="img/indicator/1.png" class="indicator" alt=""/>
-        <img src="img/indicator/dots.png" class="dots" alt=""/>
+        <img src="resources/img/indicator/1.png" class="indicator" alt=""/>
+        <img src="resources/img/indicator/1.png" class="indicator" alt=""/>
+        <img src="resources/img/indicator/dots.png" class="dots" alt=""/>
 
-        <img src="img/indicator/1.png" class="indicator" alt=""/>
-        <img src="img/indicator/1.png" class="indicator right" alt=""/>
+        <img src="resources/img/indicator/1.png" class="indicator" alt=""/>
+        <img src="resources/img/indicator/1.png" class="indicator right" alt=""/>
     </div>
     <h:form>
         <h:commandButton value="Начать" styleClass="next-page" action="main"/>
     </h:form>
-    <script src="js/time.js" type="text/javascript"></script>
+    <script src="resources/js/time.js" type="text/javascript"></script>
 </h:body>
 </html>

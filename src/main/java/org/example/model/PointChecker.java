@@ -29,8 +29,10 @@ public class PointChecker implements Serializable {
     public void submit() {
         Point point = new Point(beanPoint);
         point.setSendTime(new SimpleDateFormat("dd-M-yyyy kk:mm:ss").format(new Date()));
-        if (!validate())
+        if (!validate()) {
+            messageError = "Введенное число \n не попадает под интервал!";
             return;
+        }
 
         long start = System.nanoTime();
         double x = beanPoint.getX();

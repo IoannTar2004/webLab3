@@ -1,4 +1,4 @@
-body {
+.body {
     background-image: url("../img/cyber.jpg");
     background-size: cover;
     margin: 0;
@@ -179,7 +179,6 @@ body {
     border-color: yellow;
 }
 
-
 .result-table {
     float: right;
     margin-right: 25px;
@@ -188,31 +187,14 @@ body {
     overflow: auto;
 }
 
-#result-table th {
+.result-table-header {
     padding: 10px;
     background-color: rgb(207 35 61);
     color: white;
 }
 
-#result-table td {
-    text-align: center;
-    padding: 5px;
-}
-
-#result-table th:nth-child(odd) {
-    background-color: rgb(178 37 58);
-}
-
-#result-table tr:nth-child(even) {
+.result-table-row {
     background-color: rgb(255 255 255);
-}
-
-#result-table tr:nth-child(odd) {
-    background-color: rgb(234 226 226);
-}
-
-#result-table tr:hover {
-    background-color: rgb(202 200 200);
 }
 
 .dot {

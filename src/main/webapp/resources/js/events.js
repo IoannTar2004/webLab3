@@ -19,5 +19,6 @@ function errorsClear() {
     })
 }
 
+setInterval(() => {console.log(1)}, 1000)
 buttonsInit()
 errorsClear()
