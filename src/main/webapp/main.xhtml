@@ -18,6 +18,7 @@
       <div class="topText">Тарасов Иван Сергеевич. Группа: P3230. Вариант: 521889</div>
    </div>
 
+<h:form id="form" style="text-align: center;">
 <div id="tablebox">
    <div id="canvas">
       <div id="dots"></div>
@@ -35,11 +36,9 @@
       <h:graphicImage styleClass="graphics" value="img/canvas.png"/>
    </div>
 
-
    <div id="parametersbox">
-      <h:form id="form" style="text-align: center;">
          <p class="coorhead">Изменение X</p>
-            <h:selectOneRadio styleClass="radio" required="true" value="#{point.x}">
+            <h:selectOneRadio styleClass="radio" required="true" value="#{beanPoint.x}">
                <f:selectItem itemValue="-4" itemLabel="-4"/>
                <f:selectItem itemValue="-1" itemLabel="-1" />
                <f:selectItem itemValue="2" itemLabel="2" />
@@ -52,8 +51,8 @@
             </h:selectOneRadio>
 
          <p class="coorhead">Изменение Y</p>
-         <h:inputText id="inputY" required="true" a:placeholder="Введите число от -5 до 3" value="#{point.y}" />
-         <h:outputText styleClass="errorY" id="errorY" value="#{validation.messageError}"/>
+         <h:inputText id="inputY" required="true" a:placeholder="Введите число от -5 до 3" value="#{beanPoint.y}" />
+         <h:outputText styleClass="errorY" id="errorY" value="#{pointChecker.messageError}"/>
 
          <p class="coorhead">Изменение R</p>
          <h:commandButton type="button" id="r1" styleClass="r-button" value="1" />
@@ -63,30 +62,30 @@
          <h:commandButton type="button" id="r5" styleClass="r-button" value="5"/>
          <br />
 
-         <h:commandButton value="Отправить" styleClass="submit" action="#{validation.validate}">
+         <h:commandButton value="Отправить" styleClass="submit" action="#{pointChecker.submit()}">
             <f:ajax execute="@form" render="@form" />
          </h:commandButton>
-         </h:form>
-      </div>
+   </div>
 </div>
-<table id="result-table">
-   <thead>
-   <tr>
-      <th>Параметры</th>
-      <th>Факт попадания</th>
-      <th>Время отправки</th>
-      <th style="width: 60px">Затраченное время</th>
-   </tr>
-   </thead>
-   <tbody>
-   <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-   </tr>
-   </tbody>
-</table>
+<h:dataTable value="#{results.points}" var="p" border="1">
+   <h:column>
+      <f:facet name="header">Параметры</f:facet>
+      #{p.x} #{p.y} #{p.r}
+   </h:column>
+   <h:column>
+      <f:facet name="header">Факт попадания</f:facet>
+      #{p.status}
+   </h:column>
+   <h:column>
+      <f:facet name="header">Время отправки</f:facet>
+      #{p.sendTime}
+   </h:column>
+   <h:column>
+      <f:facet name="header">Затраченное время</f:facet>
+      #{p.scriptTime}
+   </h:column>
+</h:dataTable>
+</h:form>
 <div id="fixed-dot"></div>
 <script type="text/javascript" src="js/events.js"></script>
 

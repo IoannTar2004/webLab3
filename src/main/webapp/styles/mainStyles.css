@@ -180,7 +180,7 @@ body {
 }
 
 
-#result-table {
+.result-table {
     float: right;
     margin-right: 25px;
     margin-top: 120px;
