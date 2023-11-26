@@ -1,10 +1,10 @@
 package org.example.database;
 
-import jakarta.inject.Named;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.model.BeanPoint;
+import org.example.model.FormPoint;
 import org.example.model.Status;
 
 @Entity

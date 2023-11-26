@@ -17,29 +17,41 @@ import java.util.Date;
 public class PointChecker implements Serializable {
 
     @Inject
-    private BeanPoint beanPoint;
+    private FormPoint formPoint;
+    @Inject
+    private DynamicPoint dynamicPoint;
     @Inject
     private Results results;
     private String messageError;
 
-    private boolean validate() {
-        return !(beanPoint.getY() < -5) && !(beanPoint.getY() > 3);
+    private boolean validate(BeanPoint point) {
+        return point.getX() >= -4 && point.getX() <= 4 && point.getY() >= -5 && point.getY() <= 3 && point.getR() >= 1 && point.getR() <= 5;
     }
 
-    public void submit() {
-        Point point = new Point(beanPoint);
+    public void form() {
+        check(formPoint);
+    }
+
+    public void dynamic() {
+        check(dynamicPoint);
+    }
+
+    private void check(BeanPoint bean) {
+        Point point = new Point(bean);
         point.setSendTime(new SimpleDateFormat("dd-M-yyyy kk:mm:ss").format(new Date()));
-        if (!validate()) {
-            messageError = "Введенное число \n не попадает под интервал!";
+        Write.w(bean);
+        if (!validate(bean)) {
+            messageError = "Координата \n не попадает под интервал!";
             return;
         }
+        messageError = "";
 
         long start = System.nanoTime();
-        double x = beanPoint.getX();
-        double y = beanPoint.getY();
-        double r = beanPoint.getR();
+        double x = bean.getX();
+        double y = bean.getY();
+        double r = bean.getR();
 
-        if((x >= 0 && x <= r/2 && y >= 0 && y <= r) || (x*x + y*y <= r*r) || (y + x >= - r/2))
+        if((x >= 0 && y >= 0 && x <= r/2 && y <= r) || (x <= 0 && y >= 0 && (x*x + y*y <= r*r/4)) || (x <= 0 && y <= 0 && (y + x >= - r/2)))
             point.setStatus(Status.HIT);
         else
             point.setStatus(Status.MISSED);

@@ -1,8 +1,7 @@
 package org.example.model;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import lombok.Getter;
 import org.example.database.Database;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @Named
 @Getter
-@SessionScoped
+@ViewScoped
 public class Results implements Serializable {
     private List<Point> points = new LinkedList<>();
 
@@ -24,5 +23,13 @@ public class Results implements Serializable {
     }
     public void add(Point point) {
         points.add(point);
+    }
+
+    public void clear() {
+        Database database = new Database();
+        database.clear();
+        database.commit();
+
+        points.clear();
     }
 }

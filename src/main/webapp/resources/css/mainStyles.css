@@ -1,5 +1,5 @@
 .body {
-    background-image: url("../img/cyber.jpg");
+    background: url("../img/cyber.jpg") no-repeat fixed;
     background-size: cover;
     margin: 0;
 }
@@ -60,7 +60,6 @@
 .graphics {
     height: 250px;
     width: 250px;
-    pointer-events: none;
 }
 
 .coordinate {
@@ -70,54 +69,64 @@
     margin-left: 6px;
 }
 
-#y {
-    padding-left: 128px;
-    padding-top: 3px;
+#y-label {
+    left: 128px;
+    top: 3px;
+    pointer-events: none;
 }
 
-#x {
-    padding-left: 230px;
-    padding-top: 130px;
+#x-label {
+    left: 230px;
+    top: 130px;
+    pointer-events: none;
 }
 
 #coorRd2_x {
-    padding-left: 159px;
-    padding-top: 105px;
+    left: 159px;
+    top: 105px;
+    pointer-events: none;
 }
 
 #coorR_x {
-    padding-left: 205px;
-    padding-top: 105px;
+    left: 205px;
+    top: 105px;
+    pointer-events: none;
 }
 
 #coorRd2_y {
-    padding-left: 125px;
-    padding-top: 72px;
+    left: 125px;
+    top: 72px;
+    pointer-events: none;
 }
 
 #coorR_y {
-    padding-left: 125px;
-    padding-top: 26px;
+    left: 125px;
+    top: 26px;
+    pointer-events: none;
 }
 
 #coor-Rd2_x {
-    padding-left: 65px;
-    padding-top: 105px;
+    left: 65px;
+    top: 105px;
+    pointer-events: none;
 }
 
 #coor-R_x {
-    padding-left: 23px;
-    padding-top: 105px;
+    left: 23px;
+    top: 105px;
+    pointer-events: none;
 }
 
 #coor-Rd2_y {
-    padding-left: 125px;
-    padding-top: 160px;
+    left: 125px;
+    top: 160px;
+    pointer-events: none;
 }
 
 #coor-R_y {
-    padding-left: 125px;
-    padding-top: 205px;
+    left: 125px;
+    top: 205px;
+    pointer-events: none;
 }
 
 #canvas {
@@ -176,6 +185,20 @@
 }
 
 .submit:hover {
+    border-color: yellow;
+}
+
+.delete {
+    margin-top: 20px;
+    height: 32px;
+    border-radius: 20px;
+    background-color: red;
+    font-weight: bold;
+    color: white;
+    border-width: 3px;
+}
+
+.delete:hover {
     border-color: yellow;
 }
 

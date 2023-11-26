@@ -1,7 +1,6 @@
 package org.example.database;
 
 import jakarta.persistence.criteria.Root;
-import org.example.model.BeanPoint;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -19,6 +18,11 @@ public class Database {
 
     public void add(Point point) {
         session.merge(point);
+    }
+
+    public void clear() {
+        String sql = "DELETE FROM points";
+        session.createNativeQuery(sql, Point.class).executeUpdate();
     }
 
     public List<Point> getPoints() {

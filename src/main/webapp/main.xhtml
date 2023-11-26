@@ -23,8 +23,8 @@
    <div id="canvas">
       <div id="dots"></div>
 
-      <div id="y" class="coordinate">y</div>
-      <div id="x" class="coordinate">x</div>
+      <div id="y-label" class="coordinate">y</div>
+      <div id="x-label" class="coordinate">x</div>
       <div id="coorRd2_x" class="coordinate">0.5</div>
       <div id="coorR_x" class="coordinate">1</div>
       <div id="coorRd2_y" class="coordinate">0.5</div>
@@ -33,56 +33,73 @@
       <div id="coor-R_x" class="coordinate">-0.5</div>
       <div id="coor-Rd2_y" class="coordinate">-0.5</div>
       <div id="coor-R_y" class="coordinate">-0.5</div>
-      <h:graphicImage styleClass="graphics" value="img/canvas.png"/>
+
+       <canvas onclick="document.getElementById('form:hit').click()" id="graphics" width="250" height="250"></canvas>
+       <h:inputHidden id="x" value="#{dynamicPoint.x}"/>
+       <h:inputHidden id="y" value="#{dynamicPoint.y}"/>
+       <h:commandButton id="hit" style="display: none" action="#{pointChecker.dynamic()}">
+           <f:ajax execute="@form" render="form:results form:errorY" onevent="(e) => {if (e.status === 'success') addDot()}"/>
+       </h:commandButton>
    </div>
    <div id="parametersbox">
          <p class="coorhead">Изменение X</p>
-            <h:selectOneRadio styleClass="radio" required="true" value="#{beanPoint.x}">
+            <h:selectOneRadio styleClass="radio" required="true" value="#{formPoint.x}">
                <f:selectItem itemValue="-4" itemLabel="-4"/>
-               <f:selectItem itemValue="-1" itemLabel="-1" />
-               <f:selectItem itemValue="2" itemLabel="2" />
                <f:selectItem itemValue="-3" itemLabel="-3" />
-               <f:selectItem itemValue="0" itemLabel="0" />
-               <f:selectItem itemValue="3" itemLabel="3" />
                <f:selectItem itemValue="-2" itemLabel="-2" />
+               <f:selectItem itemValue="-1" itemLabel="-1" />
+               <f:selectItem itemValue="0" itemLabel="0" />
                <f:selectItem itemValue="1" itemLabel="1" />
+               <f:selectItem itemValue="2" itemLabel="2" />
+               <f:selectItem itemValue="3" itemLabel="3" />
                <f:selectItem itemValue="4" itemLabel="4" />
             </h:selectOneRadio>
 
          <p class="coorhead">Изменение Y</p>
-         <h:inputText id="inputY" required="true" a:placeholder="Введите число от -5 до 3" value="#{beanPoint.y}" />
+         <h:inputText id="inputY" required="true" a:placeholder="Введите число от -5 до 3" value="#{formPoint.y}" />
          <h:outputText styleClass="errorY" id="errorY" value="#{pointChecker.messageError}"/>
 
          <p class="coorhead">Изменение R</p>
        <h:commandButton id="r1" styleClass="r-button" value="1">
            <f:ajax execute="@form"/>
-           <f:setPropertyActionListener target="#{beanPoint.r}" value="1" />
+           <f:setPropertyActionListener target="#{formPoint.r}" value="1" />
+           <f:setPropertyActionListener target="#{dynamicPoint.r}" value="1" />
        </h:commandButton>
 
        <h:commandButton id="r2" styleClass="r-button" value="2">
-           <f:ajax execute="@form"/>
-           <f:setPropertyActionListener target="#{beanPoint.r}" value="2" />
+          <f:ajax execute="@form"/>
+          <f:setPropertyActionListener target="#{formPoint.r}" value="2" />
+          <f:setPropertyActionListener target="#{dynamicPoint.r}" value="2" />
        </h:commandButton>
 
          <h:commandButton id="r3" styleClass="r-button" value="3">
-             <f:ajax execute="@form"/>
-             <f:setPropertyActionListener target="#{beanPoint.r}" value="3" />
+            <f:ajax execute="@form"/>
+            <f:setPropertyActionListener target="#{formPoint.r}" value="3" />
+            <f:setPropertyActionListener target="#{dynamicPoint.r}" value="3" />
          </h:commandButton>
 
          <h:commandButton id="r4" styleClass="r-button" value="4">
-             <f:ajax execute="@form"/>
-             <f:setPropertyActionListener target="#{beanPoint.r}" value="4" />
+            <f:ajax execute="@form"/>
+            <f:setPropertyActionListener target="#{formPoint.r}" value="4" />
+            <f:setPropertyActionListener target="#{dynamicPoint.r}" value="4" />
          </h:commandButton>
 
          <h:commandButton id="r5" styleClass="r-button" value="5">
-             <f:ajax execute="@form"/>
-             <f:setPropertyActionListener target="#{beanPoint.r}" value="5" />
+            <f:ajax execute="@form"/>
+            <f:setPropertyActionListener target="#{formPoint.r}" value="5" />
+            <f:setPropertyActionListener target="#{dynamicPoint.r}" value="5" />
          </h:commandButton>
          <br />
 
-         <h:commandButton value="Отправить" styleClass="submit" action="#{pointChecker.submit()}">
-            <f:ajax execute="@form" render="form:results" />
+         <h:inputHidden id="inputR" value="1"/>
+         <h:commandButton value="Отправить" styleClass="submit" action="#{pointChecker.form()}">
+            <f:ajax execute="@form" render="form:results form:errorY" onevent="(e) => {if (e.status === 'success') addDot()}"/>
          </h:commandButton>
+
+         <br />
+        <h:commandButton value="Очистить таблицу" styleClass="delete" action="#{results.clear()}">
+           <f:ajax execute="@form" render="form:results" onevent="(e) => {if (e.status === 'success') clearDots()}"/>
+       </h:commandButton>
    </div>
 </div>
 <h:dataTable id="results" value="#{results.points}" var="p" border="1"
@@ -91,7 +108,7 @@
              rowClasses="result-table-row">
    <h:column>
       <f:facet name="header">Параметры</f:facet>
-      #{p.x} #{p.y} #{p.r}
+      R=#{p.r}: (#{p.x};#{p.y})
    </h:column>
    <h:column>
       <f:facet name="header">Факт попадания</f:facet>
@@ -110,7 +127,9 @@
 </h:form>
 
 <div id="fixed-dot"></div>
-<script type="text/javascript" src="resources/js/events.js"></script>
+<h:outputScript library="js" name="canvas.js"/>
+<h:outputScript library="js" name="events.js"/>
+<h:outputScript library="js" name="dot.js"/>
 
 </h:body>
 </html>
