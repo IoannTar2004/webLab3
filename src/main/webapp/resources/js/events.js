@@ -16,11 +16,11 @@ function buttonsInit() {
     }
 }
 
-function errorsClear() {
-    document.body.addEventListener("click", () => {
-        document.getElementById("form:errorY").innerHTML = ""
-    })
-}
+// function errorsClear() {
+//     document.body.addEventListener("click", () => {
+//         document.getElementById("form:errorY").innerHTML = ""
+//     })
+// }
 
 function targetDot() {
     document.getElementById('canvas').addEventListener('mouseenter', () => {

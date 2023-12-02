@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import lombok.Getter;
+import lombok.ToString;
 import org.example.database.Database;
 import org.example.database.Point;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Named
 @Getter
 @ViewScoped
+@ToString
 public class Results implements Serializable {
     private List<Point> points = new LinkedList<>();
 

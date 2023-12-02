@@ -7,7 +7,6 @@ import lombok.ToString;
 
 import java.io.Serializable;
 
-@ToString
 @Named
 @SessionScoped
 public class FormPoint extends BeanPoint implements Serializable {
@@ -18,7 +17,4 @@ public class FormPoint extends BeanPoint implements Serializable {
         setR(1);
     }
 
-    public void s() {
-        Write.w(this);
-    }
 }

@@ -1,11 +1,16 @@
 package org.example.model;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.Application;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.interceptor.AroundInvoke;
 import lombok.Data;
 import org.example.database.Database;
 import org.example.database.Point;
+import org.example.dependency.Injection;
+import org.example.dependency.InjectionFactory;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -16,11 +21,11 @@ import java.util.Date;
 @SessionScoped
 public class PointChecker implements Serializable {
 
-    @Inject
+    @Injection
     private FormPoint formPoint;
-    @Inject
+    @Injection
     private DynamicPoint dynamicPoint;
-    @Inject
+    @Injection
     private Results results;
     private String messageError;
 
@@ -37,9 +42,10 @@ public class PointChecker implements Serializable {
     }
 
     private void check(BeanPoint bean) {
+        InjectionFactory.inject(this);
+
         Point point = new Point(bean);
         point.setSendTime(new SimpleDateFormat("dd-M-yyyy kk:mm:ss").format(new Date()));
-        Write.w(bean);
         if (!validate(bean)) {
             messageError = "Координата \n не попадает под интервал!";
             return;
