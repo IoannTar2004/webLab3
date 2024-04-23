@@ -21,11 +21,11 @@ import java.util.Date;
 @SessionScoped
 public class PointChecker implements Serializable {
 
-    @Injection
+    @Inject
     private FormPoint formPoint;
-    @Injection
+    @Inject
     private DynamicPoint dynamicPoint;
-    @Injection
+    @Inject
     private Results results;
     private String messageError;
 

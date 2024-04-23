@@ -3,7 +3,6 @@ package org.example.model;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
-import lombok.ToString;
 
 import java.io.Serializable;
 

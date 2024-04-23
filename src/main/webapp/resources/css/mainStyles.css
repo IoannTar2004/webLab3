@@ -1,5 +1,5 @@
 .body {
-    background: url("../img/cyber.jpg") no-repeat fixed;
+    background: url("../resources/img/background/cyber.jpg") no-repeat fixed;
     background-size: cover;
     margin: 0;
 }

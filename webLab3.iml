@@ -24,5 +24,11 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="IvyIDEA" name="IvyIDEA">
+      <configuration>
+        <option name="ivyFile" value="D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\ivy.xml" />
+        <option name="useCustomIvySettings" value="false" />
+      </configuration>
+    </facet>
   </component>
 </module>
