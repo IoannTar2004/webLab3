@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="IvanKanga" name="ValidationTest" skipped="0" tests="2" time="0.055" timestamp="2024-04-25T13:40:25">
+<testsuite errors="0" failures="0" hostname="IvanKanga" name="DatabaseTest" skipped="0" tests="2" time="1.219" timestamp="2024-04-25T13:50:34">
   <properties>
     <property name="ant.library.dir" value="D:\Program Files (x86)\apache-ant-1.10.14\lib" />
     <property name="ant.file.type" value="file" />
@@ -19,7 +19,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="user.country" value="RU" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ValidationTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\ant\reports\TEST-ValidationTest.xml crashfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junitvmwatcher11720674240796592205.properties propsfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junit6420830721457998173.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DatabaseTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\ant\reports\TEST-DatabaseTest.xml crashfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junitvmwatcher9049776193864203261.properties propsfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junit7936754184665154450.properties" />
     <property name="jdk.debug" value="release" />
     <property name="sun.cpu.endian" value="little" />
     <property name="test.dir" value="src/test/java/" />
@@ -73,8 +73,30 @@
     <property name="java.class.version" value="64.0" />
     <property name="ant.project.default-target" value="run" />
   </properties>
-  <testcase classname="ValidationTest" name="gettingIntoArea" time="0.004" />
-  <testcase classname="ValidationTest" name="rangeOfAcceptableValues" time="0.001" />
+  <testcase classname="DatabaseTest" name="remove" time="1.155" />
+  <testcase classname="DatabaseTest" name="add" time="0.014" />
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[апр. 25, 2024 4:50:34 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 6.2.3.Final
+апр. 25, 2024 4:50:34 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000406: Using bytecode reflection optimizer
+апр. 25, 2024 4:50:34 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using built-in connection pool (not intended for production use)
+апр. 25, 2024 4:50:34 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+апр. 25, 2024 4:50:34 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5433/webLab3]
+апр. 25, 2024 4:50:34 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=postgres}
+апр. 25, 2024 4:50:34 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+апр. 25, 2024 4:50:34 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH10001115: Connection pool size: 20 (min=1)
+апр. 25, 2024 4:50:34 PM org.hibernate.resource.beans.spi.ManagedBeanRegistryInitiator resolveBeanContainer
+INFO: HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+апр. 25, 2024 4:50:34 PM org.hibernate.bytecode.internal.BytecodeProviderInitiator buildBytecodeProvider
+INFO: HHH000021: Bytecode provider name : bytebuddy
+апр. 25, 2024 4:50:35 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+]]></system-err>
 </testsuite>
