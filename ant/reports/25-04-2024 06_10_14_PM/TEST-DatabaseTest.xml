@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="IvanKanga" name="ValidationTest" skipped="0" tests="2" time="0.054" timestamp="2024-04-25T15:02:42">
+<testsuite errors="1" failures="0" hostname="IvanKanga" name="DatabaseTest" skipped="0" tests="1" time="0.0" timestamp="2024-04-25T15:10:13">
   <properties>
     <property name="ant.library.dir" value="D:\Program Files (x86)\apache-ant-1.10.14\lib" />
     <property name="ant.file.type" value="file" />
@@ -19,7 +19,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="user.country" value="RU" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ValidationTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\ant\reports\TEST-ValidationTest.xml crashfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junitvmwatcher9784406816262820214.properties propsfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junit8623219313567074450.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DatabaseTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\ant\reports\TEST-DatabaseTest.xml crashfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junitvmwatcher3100001038939071742.properties propsfile=D:\Program Files\IntelliJ IDEA 2022.2.3\PROJECTS\web\webLab3\junit4600004884322061812.properties" />
     <property name="jdk.debug" value="release" />
     <property name="sun.cpu.endian" value="little" />
     <property name="test.dir" value="src/test/java/" />
@@ -73,8 +73,14 @@
     <property name="java.class.version" value="64.0" />
     <property name="ant.project.default-target" value="run" />
   </properties>
-  <testcase classname="ValidationTest" name="gettingIntoArea" time="0.003" />
-  <testcase classname="ValidationTest" name="rangeOfAcceptableValues" time="0.0" />
+  <error message="DatabaseTest" type="java.lang.ClassNotFoundException">java.lang.ClassNotFoundException: DatabaseTest
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:496)
+	at java.base/java.lang.Class.forName(Class.java:475)
+</error>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
