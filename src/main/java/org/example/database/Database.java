@@ -31,6 +31,10 @@ public class Database {
         return session.createQuery(criteriaQuery.select(root)).getResultList();
     }
 
+    public void remove(Point point) {
+        session.remove(point);
+    }
+
     public void commit() {
         transaction.commit();
         session.close();
